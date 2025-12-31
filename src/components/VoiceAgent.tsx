@@ -309,12 +309,12 @@ export default function VoiceAgent() {
       {!isOpen && (
         <div
             onClick={() => setIsOpen(true)}
-            className="cursor-pointer group relative p-[3px] rounded-full bg-primary shadow-2xl transition-all duration-300 hover:scale-105 animate-bounce-subtle"
+            className="cursor-pointer group relative p-[4px] rounded-full bg-primary shadow-2xl transition-all duration-300 hover:scale-105 animate-bounce-subtle"
         >
-            <div className="flex items-center gap-3 pr-6 pl-2 py-2 rounded-full bg-white h-full w-full">
+            <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-white h-full w-full">
                 <div className="relative">
                     {/* Avatar Container */}
-                    <div className="h-14 w-14 rounded-full overflow-hidden bg-white">
+                    <div className="h-11 w-11 rounded-full overflow-hidden bg-white">
                         <img 
                             src="/Farm-vaidya-icon.png" 
                             alt="Farm Vaidya" 

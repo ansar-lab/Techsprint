@@ -158,3 +158,173 @@
 .animate-ring-rotate {
   animation: ring-rotate 3s linear infinite;
 }
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 120 20% 96%;
+    --secondary-foreground: 142 76% 26%;
+    --muted: 120 20% 96%;
+    --muted-foreground: 142 20% 40%;
+    --accent: 35 90% 50%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 142 20% 90%;
+    --input: 142 20% 90%;
+    --ring: 142 76% 36%;
+    --radius: 1rem;
+    --success: 142 76% 45%;
+    --success-foreground: 0 0% 100%;
+    --mic-pulse: 142 76% 36%;
+    --mic-glow: 142 76% 70%;
+    --brown: 30 40% 40%;
+    --brown-foreground: 0 0% 98%;
+  }
+
+  .dark {
+    --background: 142 50% 5%;
+    --foreground: 0 0% 98%;
+    --card: 142 50% 5%;
+    --card-foreground: 0 0% 98%;
+    --popover: 142 50% 5%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 142 30% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 142 30% 15%;
+    --muted-foreground: 142 20% 60%;
+    --accent: 35 90% 50%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 142 30% 15%;
+    --input: 142 30% 15%;
+    --ring: 142 76% 36%;
+    --success: 142 76% 45%;
+    --success-foreground: 0 0% 100%;
+    --mic-pulse: 142 76% 36%;
+    --mic-glow: 142 76% 70%;
+    --brown: 30 40% 40%;
+    --brown-foreground: 0 0% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background: black;
+    min-height: 100vh;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 hsl(var(--mic-pulse) / 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 20px hsl(var(--mic-pulse) / 0);
+  }
+}
+
+.pulse-animation {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: scaleY(0.5);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.wave-bar {
+  animation: wave 1s ease-in-out infinite;
+}
+
+.wave-bar:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.wave-bar:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.wave-bar:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.wave-bar:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.wave-bar:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .rotate-135 {
+    transform: rotate(135deg);
+  }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(-5%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s infinite;
+}
+
+@keyframes ring-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-ring-rotate {
+  animation: ring-rotate 3s linear infinite;
+}
+
+@keyframes google-dots {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-google-dot {
+  animation: google-dots 1.5s infinite ease-in-out;
+}

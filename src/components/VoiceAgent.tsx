@@ -31,12 +31,12 @@ export default function VoiceAgent() {
     transcriptEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [transcript]);
 
-  // Auto-connect when opening - REMOVED to fix autoplay policy issues
-  // useEffect(() => {
-  //   if (isOpen && !isConnected && !isConnecting) {
-  //     startConversation();
-  //   }
-  // }, [isOpen]);
+  // Auto-connect when opening
+  useEffect(() => {
+    if (isOpen && !isConnected && !isConnecting) {
+      startConversation();
+    }
+  }, [isOpen]);
 
   // Timer logic
   useEffect(() => {
@@ -147,10 +147,17 @@ export default function VoiceAgent() {
         setCallFrame(null);
       }
 
-      // Initialize new call object (no iframe) to avoid autoplay blocking
-      const frame = DailyIframe.createCallObject({
-        audioSource: true,
-        videoSource: false
+      // Initialize new frame while API is fetching
+      const frame = DailyIframe.createFrame({
+        showLeaveButton: false,
+        showFullscreenButton: false,
+        iframeStyle: {
+          position: "fixed",
+          width: "1px",
+          height: "1px",
+          opacity: "0",
+          pointerEvents: "none",
+        },
       });
 
       // Setup listeners immediately
